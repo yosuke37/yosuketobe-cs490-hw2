@@ -1,5 +1,6 @@
-import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
+
+import { useAuth } from 'src/auth'
 
 const BlogLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
@@ -13,8 +14,7 @@ const BlogLayout = ({ children }) => {
           </h1>
           {isAuthenticated ? (
             <div>
-              <span> Logged in as {currentUser.email}</span>{' '}
-              <br></br><br></br>
+              <span>Logged in as {currentUser.email}</span>{' '}
               <button type="button" onClick={logOut}>
                 Logout
               </button>
@@ -33,9 +33,7 @@ const BlogLayout = ({ children }) => {
             </li>
             <li>
               <Link to={routes.contact()}>Contact</Link>
-
             </li>
-
           </ul>
         </nav>
       </header>
